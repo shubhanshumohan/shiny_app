@@ -1,0 +1,63 @@
+---
+title: "Decison tree prediction model for the classification of the the species using
+             length,width of sepal and petal"
+author: "Shubhanshu Mohan Srivastava"
+date: "1 September 2018"
+output: ioslides_presentation
+---
+
+## Project objective
+
+The aim of the project is to predict the species using the length and width of Sepal and Width.Decision tree will be used for the prediction.As a part of the project a web application will be developed to predict the species by providing the required details.
+
+Requisites of the project:<br>
+1. iris dataset(available in R)<br>
+2. shiny(web framework by Rstudio)<br>
+3. caret package of R<br>
+4. rattle package of R<br>
+
+## Data
+
+The dataset being used to train the model is iris dataset.
+
+```{r,echo=FALSE,comment=" "}
+data(iris)
+head(iris)
+```
+
+We can see that that the iris dataset is a good choice to develop a prediction model for the species.
+
+## Decison tree
+
+The following decision tree will be used for prediction:
+
+```{r,echo=FALSE,cache=TRUE}
+data(iris)
+suppressWarnings(suppressMessages(library(caret)))
+suppressWarnings(suppressMessages(library(rattle)))
+model<-train(Species~.,method="rpart",data=iris)
+suppressWarnings(fancyRpartPlot(model$finalModel))
+```
+
+## Functionality of the application
+
+The application will provide an interface to enter the dimensions of petal and sepal.These details will be used to predict the species of the flower.
+
+The following details will be needed:
+
+1.Sepal Length<br>
+2.sepal Width<br>
+3.Petal Length<br>
+4.Sepal Width
+
+## Link to the project
+
+The web application can be found [Here]()
+
+The code for the application can be found [Here](https://github.com/shubhanshumohan/shiny_app)
+
+
+
+
+
+
